@@ -13,3 +13,5 @@ npx prisma init
 yarn prisma migrate dev
 yarn add bcryptjs
 yarn add dotenv
+yarn add multer
+yarn add @types/multer -D

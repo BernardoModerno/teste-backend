@@ -20,9 +20,11 @@ model Paciente {
   endereco String
 
   dados_do_plano DadosDoPlano @relation(fields: [dados_do_plano_id], references: [id])
+  exames Exames? @relation(fields: [exames_id], references: [id])
 
   @@map("pacientes")
   dados_do_plano_id String
+  exames_id String
 }
 
 model DadosDoPlano {
@@ -31,6 +33,15 @@ model DadosDoPlano {
   numero_da_carteirinha String
 
   @@map("dados_do_plano")
-  products Paciente[]
+  paciente Paciente[]
+}
+
+model Exames {
+  id String @id @default(uuid())
+  nome_exame String
+  foto_escaneada_exame String
+
+  @@map("exames")
+  paciente Paciente[]
 }
 
